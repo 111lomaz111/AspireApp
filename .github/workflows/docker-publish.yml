@@ -20,6 +20,7 @@ env:
 jobs:
   test:
     name: Build and test
+    timeout-minutes: 15
     runs-on: ubuntu-latest
 
     steps:

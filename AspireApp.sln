@@ -13,16 +13,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireApp.Web", "AspireApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnit.Tests", "xUnit.Tests\xUnit.Tests.csproj", "{ED152E04-F526-4A64-9DDD-41E59975A8C8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{372EA4BA-CEB0-4280-B9E6-C70914B6F8A0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{9E3A0BB5-F8FC-4663-8740-3BEC0B5FEA1F}"
-	ProjectSection(SolutionItems) = preProject
-		docker-publish.yml = docker-publish.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E92A32BE-CE74-4F6A-8711-7D642742DD09}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F2B97A17-59E1-4C95-B79D-267C77CAAC0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4423CB40-D8B1-45EF-95F7-B4CF3E0CC1BB}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\docker-publish.yml = .github\workflows\docker-publish.yml
 	EndProjectSection
 EndProject
 Global
@@ -56,7 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9E3A0BB5-F8FC-4663-8740-3BEC0B5FEA1F} = {372EA4BA-CEB0-4280-B9E6-C70914B6F8A0}
+		{4423CB40-D8B1-45EF-95F7-B4CF3E0CC1BB} = {F2B97A17-59E1-4C95-B79D-267C77CAAC0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7338D4F6-A98A-4F7B-981D-6EE5224B20AD}

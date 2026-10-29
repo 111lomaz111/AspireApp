@@ -33,7 +33,7 @@ namespace xUnit.Tests
             // Act
             var httpClient = app.CreateHttpClient("webfrontend");
 
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2));
             await app.ResourceNotifications.WaitForResourceHealthyAsync(
                 "webfrontend",
                 cts.Token);

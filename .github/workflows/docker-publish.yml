@@ -34,9 +34,12 @@ jobs:
 
       - name: Restore solution
         run: dotnet restore AspireApp.sln
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build solution
-        run: dotnet build AspireApp.sln --configuration Release --no-restore -m:1
+        run: dotnet build AspireApp.sln --configuration Release --no-restore
 
       - name: Run tests
         run: dotnet test xUnit.Tests/xUnit.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx" --results-directory TestResults -m:1 --blame-hang-timeout 10m

@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnit.Tests", "xUnit.Tests\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E92A32BE-CE74-4F6A-8711-7D642742DD09}"
 	ProjectSection(SolutionItems) = preProject
+		AspireApp.AppHost\aspire-output\.env.example = AspireApp.AppHost\aspire-output\.env.example
 		.gitignore = .gitignore
+		AspireApp.AppHost\aspire-output\docker-compose.yaml = AspireApp.AppHost\aspire-output\docker-compose.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F2B97A17-59E1-4C95-B79D-267C77CAAC0B}"
@@ -23,6 +25,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4423CB40-D8B1-45EF-95F7-B4CF3E0CC1BB}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\docker-publish.yml = .github\workflows\docker-publish.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{59D8DA5A-1651-473A-82C6-63C1BE45BA13}"
+	ProjectSection(SolutionItems) = preProject
+		AspireApp.AppHost\aspire-output\.env.example = AspireApp.AppHost\aspire-output\.env.example
+		AspireApp.AppHost\aspire-output\docker-compose.yaml = AspireApp.AppHost\aspire-output\docker-compose.yaml
 	EndProjectSection
 EndProject
 Global

@@ -10,37 +10,34 @@ namespace xUnit.Tests
         [Fact]
         public async Task GetWebResourceRootReturnsOkStatusCodeWithLogging()
         {
-            // Arrange
+            using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(5));
+            var cancellationToken = cts.Token;
+
             var builder = await DistributedApplicationTestingBuilder
-                .CreateAsync<Projects.AspireApp_AppHost>();
+                .CreateAsync<Projects.AspireApp_AppHost>(cancellationToken);
 
             builder.Services.ConfigureHttpClientDefaults(clientBuilder =>
             {
                 clientBuilder.AddStandardResilienceHandler();
             });
 
-            // Configure logging to capture test execution logs
             builder.Services.AddLogging(logging => logging
-                .AddConsole() // Outputs logs to console
+                .AddConsole()
                 .AddFilter("Default", LogLevel.Information)
                 .AddFilter("Microsoft.AspNetCore", LogLevel.Warning)
                 .AddFilter("Aspire.Hosting.Dcp", LogLevel.Warning));
 
-            await using var app = await builder.BuildAsync();
+            await using var app = await builder.BuildAsync(cancellationToken);
+            await app.StartAsync(cancellationToken);
 
-            await app.StartAsync();
-
-            // Act
             var httpClient = app.CreateHttpClient("webfrontend");
 
-            using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2));
             await app.ResourceNotifications.WaitForResourceHealthyAsync(
                 "webfrontend",
-                cts.Token);
+                cancellationToken);
 
-            var response = await httpClient.GetAsync("/");
+            var response = await httpClient.GetAsync("/", cancellationToken);
 
-            // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
     }

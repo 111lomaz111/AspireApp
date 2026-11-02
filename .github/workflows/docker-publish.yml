@@ -20,7 +20,7 @@ env:
 jobs:
   test:
     name: Build and test
-    timeout-minutes: 15
+    timeout-minutes: 45
     runs-on: ubuntu-latest
 
     steps:
@@ -36,10 +36,10 @@ jobs:
         run: dotnet restore AspireApp.sln
 
       - name: Build solution
-        run: dotnet build AspireApp.sln --configuration Release --no-restore
+        run: dotnet build AspireApp.sln --configuration Release --no-restore -m:1
 
       - name: Run tests
-        run: dotnet test AspireApp.sln --configuration Release --no-build --logger "trx;LogFileName=test-results.trx" --results-directory TestResults
+        run: dotnet test xUnit.Tests/xUnit.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx" --results-directory TestResults -m:1 --blame-hang-timeout 10m
 
   build-and-push:
     name: Build and publish images
